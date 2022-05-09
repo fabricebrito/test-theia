@@ -9,7 +9,16 @@ RUN chmod +x /home/theia/entrypoint.sh
 
 EXPOSE 8888
 
-RUN chmod -R 777 /home/theia/
+#RUN chmod -R 777 /home/theia/
+
+ENV NB_USER=jovyan \
+    NB_UID=1001 \
+    NB_GID=100
+
+
+RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER 
+
+USER jovyan
 
 ENTRYPOINT ["/home/theia/entrypoint.sh"]
 
