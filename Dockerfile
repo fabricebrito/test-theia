@@ -11,7 +11,17 @@ EXPOSE 8888
 
 ENTRYPOINT ["/home/theia/entrypoint.sh"]
 
-CMD ["jhsingle-native-proxy", "--destport", "8505", "/home/theia/src-gen/backend/main.js", "/home/project", "{--}hostname=0.0.0.0" "{--}port={port}"]
+CMD ["jhsingle-native-proxy", "--destport", "8505", "/home/theia/src-gen/backend/main.js", "/home/project", "{--}hostname=0.0.0.0" "{--}port={port}", "--port", "8888"]
 
 
+# binderhub-streamlit-native
+# CMD ["jhsingle-native-proxy", "--destport", "8505", "streamlit", "hello", "{--}server.port", "{port}", "{--}server.headless", "True", "{--}server.enableCORS", "False", "--port", "8888"]
+
+
+# binderhub-voila-direct
+# ENTRYPOINT ["/home/jovyan/entrypoint.sh"]
+# no CMD
+
+# binderhub-voila-native
+# CMD ["jhsingle-native-proxy", "--destport", "8505", "voila", "/home/jovyan/Presentation.ipynb", "{--}port={port}", "{--}no-browser", "{--}Voila.base_url={base_url}/", "{--}Voila.server_url=/"]
 
