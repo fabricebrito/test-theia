@@ -4,7 +4,7 @@
 # "/home/jovyan/entrypoint.sh jupyter notebook --ip 0.0.0.0 --port 59537 --NotebookApp.custom_display_url=http://127.0.0.1:59537"
 # strip out most args, just pass on the port
 
-
+set -x 
 collect_port=0
 port="8888"
 delim='='

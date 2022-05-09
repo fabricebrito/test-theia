@@ -5,6 +5,8 @@ RUN pip3 install \
 
 COPY  entrypoint.sh /home/theia
 
+RUN chmod +x /home/theia/entrypoint.sh
+
 ENTRYPOINT ["/home/theia/entrypoint.sh"]
 
 CMD ["jhsingle-native-proxy", "--destport", "8505", "/home/theia/src-gen/backend/main.js", "/home/project", "{--}hostname=0.0.0.0" "{--}port={port}"]
