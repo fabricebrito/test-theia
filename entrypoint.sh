@@ -4,7 +4,6 @@
 # "/home/jovyan/entrypoint.sh jupyter notebook --ip 0.0.0.0 --port 59537 --NotebookApp.custom_display_url=http://127.0.0.1:59537"
 # strip out most args, just pass on the port
 
-set -x 
 collect_port=0
 port="8888"
 delim='='
@@ -35,14 +34,5 @@ destport=$((port + 1))
 
 echo "Using internal port $destport"
 
-# jhsingle-native-proxy --destport $destport --authtype none voila /home/jovyan/Presentation.ipynb {--}port={port} {--}no-browser {--}Voila.base_url={base_url}/ {--}Voila.server_url=/ --port $port
+jhsingle-native-proxy --port $port --destport $destport node /home/theia/src-gen/backend/main.js {--}app-project-path=/workspace {--}hostname=0.0.0.0 {--}port={port} 
 
-jhsingle-native-proxy --port $port --destport $destport node /home/theia/src-gen/backend/main.js {--}app-project-path=/home/project {--}hostname=0.0.0.0 {--}port={port} 
-
-# "args": [
-#         "--hostname=0.0.0.0",
-#         "--port=3000",
-#         "--no-cluster",
-#         "--app-project-path=${workspaceFolder}/examples/browser",
-#         "--plugins=local-dir:plugins",
-#         "--hosted-plugin-inspect=9339"
