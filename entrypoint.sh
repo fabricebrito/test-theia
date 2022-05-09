@@ -37,7 +37,7 @@ echo "Using internal port $destport"
 
 # jhsingle-native-proxy --destport $destport --authtype none voila /home/jovyan/Presentation.ipynb {--}port={port} {--}no-browser {--}Voila.base_url={base_url}/ {--}Voila.server_url=/ --port $port
 
-jhsingle-native-proxy --port $port --destport $destport --authtype none /home/theia/src-gen/backend/main.js {--}app-project-path=/home/project {--}hostname=0.0.0.0 {--}port={port} 
+jhsingle-native-proxy --port $port --destport $destport node /home/theia/src-gen/backend/main.js {--}app-project-path=/home/project {--}hostname=0.0.0.0 {--}port={port} 
 
 # "args": [
 #         "--hostname=0.0.0.0",
