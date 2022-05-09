@@ -11,7 +11,7 @@ EXPOSE 8888
 
 ENTRYPOINT ["/home/theia/entrypoint.sh"]
 
-CMD ["jhsingle-native-proxy", "--destport", "8505", "/home/theia/src-gen/backend/main.js", "/home/project", "{--}hostname=0.0.0.0" "{--}port={port}", "--port", "8888"]
+CMD ["jhsingle-native-proxy", "--port", "8888", "--destport", "8505", "/home/theia/src-gen/backend/main.js", "/home/project", "{--}hostname=0.0.0.0" "{--}port={port}"]
 
 
 # binderhub-streamlit-native
